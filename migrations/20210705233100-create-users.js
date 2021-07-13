@@ -16,6 +16,10 @@ module.exports = {
         }
         
       },
+
+      profile_photo: {
+        type: Sequelize.STRING,
+      },
       lastname: {
         type: Sequelize.STRING,
         validate :{

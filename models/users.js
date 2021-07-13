@@ -15,11 +15,36 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   users.init({
-    firstname: DataTypes.STRING,
-    lastname: DataTypes.STRING,
+    firstname: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+
+    lastname: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+   
     active: DataTypes.BOOLEAN,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
+
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+        isEmail: true
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+
   }, {
     sequelize,
     modelName: 'users',
